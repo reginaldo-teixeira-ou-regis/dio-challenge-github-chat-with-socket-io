@@ -1,6 +1,6 @@
 ## Challenge of Project about Git/GitHub of the DIO
 
-###Repository created for the Challenge of Project.
+### Repository created for the Challenge of Project.
 
 Testing in practice the basic GitHub commands:
 
