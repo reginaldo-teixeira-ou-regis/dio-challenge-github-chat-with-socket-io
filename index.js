@@ -4,7 +4,6 @@ const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-
 const io = new Server(server);
 
 app.use(express.static('public'));
@@ -13,20 +12,43 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/view/index.html');
 });
 
-// on = evento de escuta
-// emit = evento de emissão
+const users = {};
+
+const getCurrentDateTime = () => {
+  const now = new Date();
+  const date = now.toLocaleDateString();
+  const time = now.toLocaleTimeString();
+  return `${date} - ${time}`;
+};
 
 io.on('connection', (socket) => {
-  console.log(`Uma pessoa se conectou ao backend com o id: ${socket.id}`);
+  console.log(`User connected: ${socket.id}`);
 
-  socket.on('chat message', (message) => {
-    console.log(`A pessoa usuaria de id: ${socket.id} enviou a seguinte mensagem: ${message}`);
-    io.emit('chat message', message);
+  socket.on('user login', (username) => {
+    users[socket.id] = {
+      username: username,
+      timestamp: getCurrentDateTime()
+    };
+    io.emit('user joined', username, users[socket.id].timestamp);
   });
 
-  io.on('disconnect', () => {
-    console.log(`A pessoa de id: ${socket.id} se desconectou`);
+  socket.on('chat message', (data) => {
+    const { message, username } = data;
+    console.log(`User ${username} sent a message: ${message}`);
+    io.emit('chat message', { message, username });
+  });
+
+  socket.on('disconnect', () => {
+    console.log(`User disconnected: ${socket.id}`);
+    const userData = users[socket.id];
+    if (userData) {
+      const { username, timestamp } = userData;
+      delete users[socket.id];
+      io.emit('user left', username, timestamp);
+    }
   });
 });
 
-server.listen(3000, () => console.log('O PAI TA ON NA PORTA 3000'));
+server.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});

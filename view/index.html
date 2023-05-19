@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webchat</title>
-  <link href="./app.css" rel="stylesheet">
+  <title>Chat made with socket io ❤️</title>
+  <link href="app.css" rel="stylesheet">
 </head>
 <body>
-  <ul id="messages"></ul>
-  <form id="form" action="">
-    <input id="input" autocomplete="off" /><button>Send</button>
-  </form>
+
+  <div id="login-container">
+    <form id="login-form" class="login-form">
+      <input type="text" id="username" class="input-login" placeholder="Enter your name">
+      <button type="submit" class="button-login">Enter Chat</button>
+    </form>
+  </div>
+  
+  <div id="chat-container" class="hidden">
+    <div id="header" class="header">
+      <h1 class="title">Chat made with socket io ❤️</h1>
+      <div id="logged-in-username"></div>
+    </div>
+    <ul id="messages" class="message-list"></ul>
+    <form id="form" class="chat-form">
+      <input type="text" id="input" class="input" placeholder="Type a message">
+      <button type="submit" class="button">Send</button>
+    </form>
+  </div>
+
   <script src="/socket.io/socket.io.js"></script>
   <script src="script.js"></script>
 </body>

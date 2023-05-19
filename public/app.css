@@ -1,10 +1,127 @@
-body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+body {
+  margin: 0;
+  padding-bottom: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-#form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
-#input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
-#input:focus { outline: none; }
-#form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+#header {
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
 
-#messages { list-style-type: none; margin: 0; padding: 0; }
-#messages > li { padding: 0.5rem 1rem; }
-#messages > li:nth-child(odd) { background: #efefef; }
+.title {
+  text-align: left;
+  margin: 0;
+  position: fixed;
+}
+
+#logged-in-username {
+  text-align: right;
+  margin: 0.5rem 1.5rem;
+  font-size: larger;
+  right: 0;
+  border-radius: 3rem;
+  padding: 0.25rem 1rem;
+  background: rgba(0, 0, 0, 0.15);
+  position: fixed;
+}
+
+#login-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+} 
+
+.top-right {
+  text-align: right;
+}
+
+.login-form {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.25rem;
+  display: flex;
+  height: 3rem;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+  display: flex;
+  z-index: 100000;
+}
+
+.chat-form {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.25rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 3rem;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+}
+
+.input {
+  border: none;
+  font-size: medium;
+  padding: 0 1rem;
+  flex-grow: 1;
+  border-radius: 2rem;
+  margin: 0.25rem;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.button {
+  background: #333;
+  border: none;
+  font-size: medium;
+  padding: 0.25rem 1.5rem;
+  margin: 0.25rem;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+}
+
+#login-container .input-login {
+  border: none;
+  font-size: larger;
+  padding: 0.25rem 1rem;
+  flex-grow: 1;
+  border-radius: 2rem;
+  margin: 0.25rem;
+}
+
+#login-container .button-login {
+  background: #333;
+  border: none;
+  font-size: larger;
+  padding: 0.25rem 3rem;
+  margin: 0.25rem;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+}
+
+.message-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  height: calc(100vh - 6rem);
+}
+
+.message-list > li {
+  padding: 0.5rem 1rem;
+}
+
+.message-list > li:nth-child(odd) {
+  background: #efefef;
+}
