@@ -1,11 +1,9 @@
-## Challenge of Project about Git/GitHub of the DIO
+## Project Git/GitHub
 
-### Repository created for the Challenge of Project.
+### Developing a simple chat with socket io
 
 Testing in practice the basic GitHub commands:
-
 * Creating a basic repository on github;
-* Developing a simple chat with socket io;
 * Cloning the repository to my local machine;
 * Adding a readme and random files;
 * Committing and uploading to the cloud.
