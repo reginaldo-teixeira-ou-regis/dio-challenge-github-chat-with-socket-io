@@ -1,4 +1,4 @@
-## Project Git/GitHub
+# Project Git/GitHub
 
 ### Developing a simple chat with socket io
 
